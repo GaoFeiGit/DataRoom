@@ -15,17 +15,6 @@
           @change="changeTab"
         />
       </div>
-      <a
-        v-if="giteeSvg && giteeHref"
-        class="fork-me-on-gitee"
-        :href="giteeHref"
-        target="_blank"
-      >
-        <img
-          :src="giteeSvg"
-          alt="Fork me on Gitee"
-        >
-      </a>
     </header>
     <div class="big-screen-router-view-wrap">
       <keep-alive>
@@ -52,8 +41,8 @@ export default {
   },
   computed: {
     title () {
-      if (this.$route.query.edit) return '大屏设计器'
-      return window?.BS_CONFIG?.starter?.title ?? 'DataRoom大屏设计器'
+      if (this.$route.query.edit) return '新聚力大屏设计器'
+      return window?.BS_CONFIG?.starter?.title ?? '新聚力大屏设计器'
     },
     logo () {
       return window?.BS_CONFIG?.starter?.logo ?? require('./images/logo.png')

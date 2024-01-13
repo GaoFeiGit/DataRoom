@@ -64,6 +64,11 @@ public interface PageDesignConstant {
             String IFRAME = "iframeChart";
 
             /**
+             * 外链组
+             */
+            String IFRAME_GROUP = "iframeGroupChart";
+
+            /**
              * 倒计时
              */
             String TIME_COUNT_DOWN = "timeCountDown";

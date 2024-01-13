@@ -42,7 +42,7 @@
             class="select-line-icon option-delete"
             @click="deleteLinkComponents(index)"
           >
-            <i class="el-icon-remove-outline" />
+            <i class="el-icon-remove-outline"/>
           </div>
         </div>
       </div>
@@ -60,12 +60,13 @@
 <script>
 // import _ from 'lodash'
 import cloneDeep from 'lodash/cloneDeep'
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
+
 export default {
   name: 'ComponentBinding',
   directives: {
     block: {
-      bind (el, binding) {
+      bind(el, binding) {
         el.style.width = binding.value || '100%'
       }
     }
@@ -73,7 +74,8 @@ export default {
   props: {
     config: {
       type: Object,
-      default: () => {}
+      default: () => {
+      }
     },
     // 当前组件的联动字段
     sourceFieldList: {
@@ -81,7 +83,7 @@ export default {
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       // 关联设置弹窗
       settingVisible: false,
@@ -95,18 +97,19 @@ export default {
       chartList: state => state.bigScreen.pageInfo.chartList
     }),
     // 当前已经关联的组件key
-    currentLinkComponentKey () {
+    currentLinkComponentKey() {
       return this.config.dataSource.dimensionFieldList?.map(item => item) || []
     }
   },
-  mounted () { },
-  beforeDestroy () {
+  mounted() {
+  },
+  beforeDestroy() {
   },
   methods: {
     /**
      * @description: 获取除自己之外的所有组件
      */
-    allComponentsExpectSelf (code) {
+    allComponentsExpectSelf(code) {
       let layouts = cloneDeep(this.chartList)
       const tabComponents = []
       layouts?.map((ly) => {
@@ -116,7 +119,7 @@ export default {
           })
         }
       })
-      layouts = layouts?.filter(item => item.code !== code && !['Tabs', 'titles', 'currentTime', 'timeCountDown', 'iframeChart', 'linkChart', 'carousel', 'themeSwitcher', 'themeSelect', 'customHtml'].includes(item.type))
+      layouts = layouts?.filter(item => item.code !== code && !['Tabs', 'titles', 'currentTime', 'timeCountDown', 'iframeChart', 'iframeGroupChart', 'linkChart', 'carousel', 'themeSwitcher', 'themeSelect', 'customHtml'].includes(item.type))
       layouts = [...layouts, ...tabComponents]?.map(item => ({
         name: item.code,
         comment: item.title
@@ -126,7 +129,7 @@ export default {
     /**
      * @description: 添加关联组件
      */
-    addBindComponents () {
+    addBindComponents() {
       this.config.customize.bindComponents.push({
         name: '',
         comment: ''
@@ -135,13 +138,13 @@ export default {
     /**
      * @description: 删除关联组件
      */
-    deleteLinkComponents (index) {
+    deleteLinkComponents(index) {
       this.config.customize.bindComponents.splice(index, 1)
     },
     /**
      * @description: 改变关联组件
      */
-    changeComponent (data, index) {
+    changeComponent(data, index) {
       this.$set(
         this.config.dataSource.dimensionFieldList,
         index,
@@ -156,7 +159,7 @@ export default {
         }
       )
     },
-    chooseComponent (field) {
+    chooseComponent(field) {
       this.activeCode = field?.componentKey
     }
   }
@@ -199,28 +202,35 @@ export default {
 .design-tab-warp {
   padding: 10px;
 }
+
 ::v-deep.el-tabs--top {
   height: 100%;
 }
+
 ::v-deep .el-tabs__content {
   height: calc(100% - 40px);
   overflow-y: auto;
 }
+
 .setting-body {
   height: 100%;
 }
+
 // 筛选条件的按钮样式
 .add-filter-box {
   position: relative;
+
   .add-filter {
     margin-left: 90px;
     margin-bottom: 10px;
   }
+
   .add-filter-btn {
     position: absolute;
     top: 0;
   }
 }
+
 .select-item {
   display: flex;
   margin-bottom: 8px;
@@ -243,6 +253,7 @@ export default {
       width: 90px !important;
     }
   }
+
   .input-wrap_left {
     flex: 1;
     display: flex;
@@ -261,21 +272,25 @@ export default {
     color: #f56c6c;
   }
 }
+
 .select-item-active {
   border: 1px solid var(--bs-el-color-primary);
   background: var(--bs-el-background-3);
 }
+
 // 修改设置面板样式
-.data-setting-box{
-  .data-setting-data-box{
-    .lc-field-head{
+.data-setting-box {
+  .data-setting-data-box {
+    .lc-field-head {
       height: 30px;
-      .lc-field-title{
+
+      .lc-field-title {
         position: relative;
         padding-left: 12px;
         line-height: 30px;
         height: 30px;
-        &:after{
+
+        &:after {
           position: absolute;
           left: 0;
           top: 50%;

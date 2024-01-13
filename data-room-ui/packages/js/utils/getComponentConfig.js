@@ -1,6 +1,6 @@
 import Icon from 'data-room-ui/assets/images/bigScreenIcon/export'
 
-export default function getComponentConfig (type) {
+export default function getComponentConfig(type) {
   switch (type) {
     case 'texts':
       return {
@@ -161,6 +161,19 @@ export default function getComponentConfig (type) {
         y: 0,
         type
       }
+    case 'iframeGroupChart':
+      return {
+        name: '外链组',
+        title: '外链组',
+        icon: Icon.getNameList()[34],
+        className:
+          'com.gccloud.dataroom.core.module.chart.components.ScreenIframeGroupChart',
+        w: 600,
+        h: 400,
+        x: 0,
+        y: 0,
+        type
+      }
     case 'digitalFlop':
       return {
         name: '翻牌器',
@@ -232,7 +245,7 @@ export default function getComponentConfig (type) {
         title: '跑马灯',
         icon: Icon.getNameList()[16],
         className:
-            'com.gccloud.dataroom.core.module.chart.components.ScreenMarqueeChart',
+          'com.gccloud.dataroom.core.module.chart.components.ScreenMarqueeChart',
         w: 250,
         h: 150,
         x: 0,

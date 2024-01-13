@@ -52,17 +52,17 @@
   </div>
 </template>
 <script>
-import { resolveComponentType } from 'data-room-ui/js/utils'
+import {resolveComponentType} from 'data-room-ui/js/utils'
 import DataSetting from './DataSetting.vue'
 import rightSetting from 'data-room-ui/js/utils/rightSettingImport'
 import CustomComponent from './G2CustomSetting.vue'
 import EchartsCustomSetting from './EchartsCustomSetting.vue'
 import Svgs from 'data-room-ui/Svgs/setting.vue'
-import { mapState, mapMutations } from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 // import _ from 'lodash'
 import isEqual from 'lodash/isEqual'
 import cloneDeep from 'lodash/cloneDeep'
-import { EventBus } from 'data-room-ui/js/utils/eventBus'
+import {EventBus} from 'data-room-ui/js/utils/eventBus'
 // 整体动态导入右侧设置组件，不用手动注册
 const components = {}
 for (const key in rightSetting) {
@@ -82,7 +82,7 @@ export default {
     RemoteComponent: CustomComponent,
     EchartsComponent: EchartsCustomSetting
   },
-  data () {
+  data() {
     return {
       activeName: 'data',
       isOperationRollback: false
@@ -95,10 +95,10 @@ export default {
       config: (state) => state.bigScreen.activeItemConfig,
       chartList: (state) => state.bigScreen.pageInfo.chartList
     }),
-    pageCode () {
+    pageCode() {
       return this.$route.query.code
     },
-    configDataSource () {
+    configDataSource() {
       return {
         dataSource: cloneDeep(this.config.dataSource),
         linkage: cloneDeep(this.config?.linkage),
@@ -107,7 +107,7 @@ export default {
         code: this.config?.code
       }
     },
-    configStyle () {
+    configStyle() {
       return {
         showTitle: this.config.showTitle,
         title: cloneDeep(this.config?.title),
@@ -134,47 +134,58 @@ export default {
   watch: {
     // 只更新样式部分，不调用接口
     configStyle: {
-      handler (val, oldValue) {
+      handler(val, oldValue) {
         this.handleConfigChange(val, oldValue, 'configStyle')
       },
       deep: true
     },
     // 更新数据源部分，需要调用接口
     configDataSource: {
-      handler (val, oldValue) {
+      handler(val, oldValue) {
         this.handleConfigChange(val, oldValue, 'configDataSource')
       },
       deep: true
     }
   },
-  mounted () {
+  mounted() {
     EventBus.$on('operationRollback', val => {
       this.isOperationRollback = val
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     EventBus.$off('operationRollback')
   },
   methods: {
     ...mapMutations('bigScreen', [
       'saveTimeLine'
     ]),
-    debounce (delay, obj) {
+    debounce(delay, obj) {
       if (this.timeout) {
         clearTimeout(this.timeout)
       }
       this.timeout = setTimeout(() => {
-        this.$emit('updateSetting', { ...obj })
+        this.$emit('updateSetting', {...obj})
       }, delay)
     },
-    handleConfigChange (val, oldValue, type) {
+    handleConfigChange(val, oldValue, type) {
       if (val.code === oldValue.code) {
         if (!isEqual(val, oldValue)) {
           if (type === 'configStyle') {
-            if (this.config.type === 'iframeChart') {
-              this.debounce(500, { ...val, type: this.config.type, code: this.config.code, parentCode: this.config?.parentCode })
+            if (this.config.type === 'iframeChart' || this.config.type === 'iframeGroupChart') {
+              this.debounce(500, {
+                ...val,
+                type: this.config.type,
+                code: this.config.code,
+                parentCode: this.config?.parentCode
+              })
             } else {
-              this.$emit('updateSetting', { ...val, type: this.config.type, code: this.config.code, theme: this.config.theme, parentCode: this.config?.parentCode })
+              this.$emit('updateSetting', {
+                ...val,
+                type: this.config.type,
+                code: this.config.code,
+                theme: this.config.theme,
+                parentCode: this.config?.parentCode
+              })
             }
           } else {
             this.$emit('updateDataSetting', this.config)
@@ -186,15 +197,15 @@ export default {
         }
       }
     },
-    close () {
+    close() {
       this.$emit('closeRightPanel')
     },
-    handleClick (val) {
+    handleClick(val) {
       this.$set(this, 'activeName', val.name)
     },
     resolveComponentType,
     // 多个表单校验
-    getFormPromise (form) {
+    getFormPromise(form) {
       return new Promise((resolve) => {
         form.validate((res) => {
           resolve(res)
@@ -202,7 +213,7 @@ export default {
       })
     },
     // 更新
-    update () {
+    update() {
       // 有数据配置也有自定义配置的组件
       if (this.config.option.displayOption.dataAllocation.enable) {
         // 获取子组件的表单元素
@@ -259,11 +270,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/settingWrap.scss';
+
 .add-filter-box {
   position: relative;
+
   .add-filter {
     margin-left: 100px;
   }
+
   .add-filter-btn {
     position: absolute;
     top: 0;

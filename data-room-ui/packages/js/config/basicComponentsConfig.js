@@ -10,7 +10,8 @@
 import cloneDeep from 'lodash/cloneDeep'
 import getComponentConfig from 'data-room-ui/js/utils/getComponentConfig'
 // 批量引入配置文件
-import { setModules, dataModules } from 'data-room-ui/js/utils/configImport'
+import {dataModules, setModules} from 'data-room-ui/js/utils/configImport'
+// 基础组件下的小组件列表
 const typeList = [
   'texts',
   'numbers',
@@ -22,6 +23,7 @@ const typeList = [
   'currentTime',
   'customHtml',
   'iframeChart',
+  'iframeGroupChart',
   'digitalFlop',
   'tables',
   'screenScrollRanking',
@@ -49,13 +51,15 @@ basicConfigList = typeList.map((type) => {
 basicConfigList = basicConfigList.map((item) => {
   return basicComponentsConfig(item)
 })
+
 // 生成基本配置
-export function basicComponentsConfig (item) {
+export function basicComponentsConfig(item) {
   return {
     ...item,
-    border: { type: '', titleHeight: 60, fontSize: 30, isTitle: true, padding: [0, 0, 0, 0] },
+    border: {type: '', titleHeight: 60, fontSize: 30, isTitle: true, padding: [0, 0, 0, 0]},
     option: cloneDeep(setModules[item.type]),
     ...cloneDeep(dataModules[item.type])
   }
 }
+
 export default basicConfigList

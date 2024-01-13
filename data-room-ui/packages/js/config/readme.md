@@ -1,0 +1,1 @@
+`basicComponentsConfig.js`由`packages/BigScreenDesign/LeftPanel.vue`引入
