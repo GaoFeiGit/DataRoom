@@ -9,7 +9,7 @@
       class="setting-body bs-el-form"
     >
       <div>
-        <slot name="top" />
+        <slot name="top"/>
         <el-form
           :model="config.customize"
           label-position="left"
@@ -166,7 +166,7 @@
             </el-form-item>
             <el-form-item>
               <el-button
-                class="bs-el-button-default cancel"
+                class="bs-el-button-default danger"
                 @click="config.customize.teams.splice(index,1)"
               >
                 删除此班组
@@ -177,7 +177,7 @@
         <el-form-item>
           <el-button
             class="bs-el-button-default"
-            @click="config.customize.teams.push({})"
+            @click="config.customize.teams.push({showIcon:true,showName:true,iconType:'svg'})"
           >
             添加班组
           </el-button>
@@ -207,41 +207,49 @@ export default {
       required: true
     }
   },
-  data () {
+  data() {
     return {
       fontFamilyList: fontList,
       alignList: [{
         label: '靠左',
         value: 'left'
       },
-      {
-        label: '居中',
-        value: 'center'
-      },
-      {
-        label: '靠右',
-        value: 'right'
-      }],
+        {
+          label: '居中',
+          value: 'center'
+        },
+        {
+          label: '靠右',
+          value: 'right'
+        }],
       layouts: [
-        { label: '图标在左', value: 'left-icon-right-text' },
-        { label: '图标在右', value: 'right-icon-left-text' },
-        { label: '图标在上', value: 'above-icon-below-text' },
-        { label: '图标在下', value: 'below-icon-above-text' }
+        {label: '图标在左', value: 'left-icon-right-text'},
+        {label: '图标在右', value: 'right-icon-left-text'},
+        {label: '图标在上', value: 'above-icon-below-text'},
+        {label: '图标在下', value: 'below-icon-above-text'}
       ],
       iconTypes: [
-        { label: 'SVG图标', value: 'svg' },
-        { label: '字体图标', value: 'font' }
+        {label: 'SVG图标', value: 'svg'},
+        {label: '字体图标', value: 'font'}
       ]
     }
   },
   watch: {},
-  mounted () {
+  mounted() {
   },
   methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
+.danger {
+  color: #ff4141 !important;
+}
+
+.danger:hover {
+  border-color: #ff4141 !important;
+}
+
 .lc-field-body {
   width: 97%;
   padding: 12px 16px;
