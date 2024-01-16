@@ -30,4 +30,6 @@ importComponents(require.context('data-room-ui/BasicComponents', true, /\index.v
 importComponents(require.context('data-room-ui/Borders', true, /\index.vue$/))
 importComponents(require.context('data-room-ui/Decorations', true, /\index.vue$/))
 importComponents(require.context('data-room-ui/BorderComponents', true, /\index.vue$/))
+// 注册LOOP组件
+importComponents(require.context('data-room-ui/LoopComponents', true, /\index.vue$/))
 export default modules

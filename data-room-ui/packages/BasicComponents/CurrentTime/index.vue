@@ -31,10 +31,12 @@
 
 <script>
 import moment from 'moment'
+import 'moment/locale/zh-cn'
 import paramsMixins from 'data-room-ui/js/mixins/paramsMixins'
 import { settingToTheme } from 'data-room-ui/js/utils/themeFormatting'
 import cloneDeep from 'lodash/cloneDeep'
 import { mapMutations, mapState } from 'vuex'
+moment.locale('zh-cn')
 export default {
   name: 'CurrentTime',
   mixins: [paramsMixins],
@@ -93,6 +95,7 @@ export default {
     },
     // 格式化时间
     dateFormat () {
+      console.log(moment.locales())
       this.nowTime = moment(new Date().getTime()).format(
         this.config.dateFormat
       )

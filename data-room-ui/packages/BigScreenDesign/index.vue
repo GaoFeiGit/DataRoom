@@ -36,19 +36,33 @@
           id="minimap"
           class="minimap"
         >
-          <div class="mapHeader" id="mapHeader">
+          <div
+            id="mapHeader"
+            class="mapHeader"
+          >
             <div>
-              <span>小地图</span>
+              <span>MiniMap</span>
             </div>
-            <div class="showMap" @click="showMinimap">
-              <i class="el-icon-arrow-down" style="width:20px;height:20px;color:#fff;" v-if="!mapShow"/>
-              <i class="el-icon-arrow-up" style="width:20px;height:20px;color:#fff;" v-if="mapShow"/>
+            <div
+              class="showMap"
+              @click="showMinimap"
+            >
+              <i
+                v-if="!mapShow"
+                class="el-icon-arrow-down"
+                style="width:20px;height:20px;color:#fff;"
+              />
+              <i
+                v-if="mapShow"
+                class="el-icon-arrow-up"
+                style="width:20px;height:20px;color:#fff;"
+              />
             </div>
           </div>
           <div
+            v-show="mapShow"
             id="selectWin"
             class="selectWin"
-            v-show="mapShow"
           >
             <div
               id="selectionWin"

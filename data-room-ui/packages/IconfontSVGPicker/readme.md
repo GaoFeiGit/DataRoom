@@ -1,0 +1,1 @@
+SGV图标的默认类名`svgicon`

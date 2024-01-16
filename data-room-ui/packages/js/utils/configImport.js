@@ -22,4 +22,6 @@ function importComponentSettingConfig (files) {
 importComponentSettingConfig(require.context('data-room-ui/BasicComponents', true, /\.js$/))
 importComponentSettingConfig(require.context('data-room-ui/Borders', true, /\.js$/))
 importComponentSettingConfig(require.context('data-room-ui/Decorations', true, /\.js$/))
+// 注册LOOP组件配置
+importComponentSettingConfig(require.context('data-room-ui/LoopComponents', true, /\.js$/))
 export { setModules, dataModules }

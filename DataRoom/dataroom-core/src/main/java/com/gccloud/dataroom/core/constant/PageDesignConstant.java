@@ -43,6 +43,7 @@ public interface PageDesignConstant {
         String COMPONENT = "componentCatalog";
 
     }
+
     /**
      * 大屏
      */
@@ -52,6 +53,13 @@ public interface PageDesignConstant {
          * 组件类型
          */
         interface Type {
+
+            /**
+             * 班组
+             *
+             * @author F 2024/1/15 8:41
+             */
+            String SHIFT_TEAM = "shiftTeam";
 
             /**
              * 表格

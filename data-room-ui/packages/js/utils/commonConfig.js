@@ -55,6 +55,7 @@ export const displayOption = {
   }
 }
 export default function (customConfig) {
+  console.log(customConfig)
   return {
     ...getComponentConfig(customConfig.type),
     z: 0, // z轴图层支持

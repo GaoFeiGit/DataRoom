@@ -28,21 +28,23 @@
       <div class="setting-wrap">
         <PosWhSetting :config="config" />
       </div>
-      <SettingTitle v-if="config.border">边框</SettingTitle>
+      <SettingTitle v-if="config.border">
+        边框
+      </SettingTitle>
       <div class="lc-field-body">
         <BorderSetting
           v-if="config.border"
           label-width="100px"
           :config="config.border"
-          :bigTitle='config.title'
+          :big-title="config.title"
         />
       </div>
       <SettingTitle>旋转</SettingTitle>
-          <div class="lc-field-body">
-            <RotateSetting
-              :config="config"
-            />
-          </div>
+      <div class="lc-field-body">
+        <RotateSetting
+          :config="config"
+        />
+      </div>
       <SettingTitle>基础</SettingTitle>
       <div class="setting-wrap">
         <el-form-item
@@ -122,6 +124,7 @@ import PosWhSetting from 'data-room-ui/BigScreenDesign/RightSetting/PosWhSetting
 import BorderSetting from 'data-room-ui/BigScreenDesign/RightSetting/BorderSetting.vue'
 import RotateSetting from 'data-room-ui/BigScreenDesign/RightSetting/RotateSetting.vue'
 import fontList from 'data-room-ui/js/utils/fontList'
+
 export default {
   name: 'CurrentTimeSetting',
   components: {
@@ -136,7 +139,11 @@ export default {
       activeName: 'data',
       dateFormatList: [
         { label: '年-月-日 时:分:秒', value: 'YYYY-MM-DD HH:mm:ss' },
-        { label: '年/月/日 时/分/秒', value: 'YYYY/MM/DD HH/mm/ss' }
+        { label: '年/月/日 时/分/秒', value: 'YYYY/MM/DD HH/mm/ss' },
+        { label: '年-月-日', value: 'YYYY-MM-DD' },
+        { label: '年/月/日', value: 'YYYY/MM/DD' },
+        { label: '星期', value: 'ddd' },
+        { label: '时:分:秒', value: 'HH:mm:ss' }
       ],
       HeaderFontSizeList: [
         { label: '正常', value: 16 },
@@ -159,18 +166,18 @@ export default {
       }
     }
   },
-  watch: {
+  watch: {},
+  mounted () {
   },
-  mounted () {},
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
- @import "../../assets/style/settingWrap.scss";
- @import "../../assets/style/bsTheme.scss";
-.setting-wrap{
+@import "../../assets/style/settingWrap.scss";
+@import "../../assets/style/bsTheme.scss";
+
+.setting-wrap {
   padding: 12px 16px;
 }
 </style>

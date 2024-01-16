@@ -784,6 +784,14 @@
     background-color: var(--bs-background-1) !important;
     color: var(--bs-el-text) !important;
   }
+  .el-divider__text.is-center {
+    background-color: var(--bs-background-1) !important;
+    color: var(--bs-el-text) !important;
+  }
+  .el-divider__text.is-right {
+    background-color: var(--bs-background-1) !important;
+    color: var(--bs-el-text) !important;
+  }
 }
 
 .bs-el-tooltip-dark {

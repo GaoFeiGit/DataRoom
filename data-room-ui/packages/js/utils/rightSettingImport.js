@@ -29,4 +29,5 @@ function importComponentSetting (files) {
 importComponentSetting(require.context('data-room-ui/BasicComponents', true, /\.vue$/))
 importComponentSetting(require.context('data-room-ui/Borders', true, /\.vue$/))
 importComponentSetting(require.context('data-room-ui/Decorations', true, /\.vue$/))
+importComponentSetting(require.context('data-room-ui/LoopComponents', true, /\.vue$/))
 export default modules

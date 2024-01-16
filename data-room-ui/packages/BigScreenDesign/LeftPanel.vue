@@ -148,13 +148,16 @@
 <script>
 import cloneDeep from 'lodash/cloneDeep'
 import basicComponents from 'data-room-ui/js/config/basicComponentsConfig'
+// 添加导入Loop组件库
 import g2PlotComponents, { getCustomPlots } from '../G2Plots/plotList'
 import echartsComponents from '../Echarts/echartList'
 import borderComponents from 'data-room-ui/js/config/borderComponentsConfig'
 import decorationComponents from 'data-room-ui/js/config/decorationComponentsConfig'
+import loopComponents from 'data-room-ui/js/config/loopComponentsConfig'
 import LayerList from './LayerList/index.vue'
 import { mapMutations } from 'vuex'
 import IconSvg from 'data-room-ui/SvgIcon'
+
 export default {
   name: 'PageLeftPanel',
   components: {
@@ -197,7 +200,7 @@ export default {
           id: 7,
           name: 'echart',
           title: '3D',
-          icon: 'icon-jichushuju',
+          icon: 'icon-data-3d',
           components: this.echartsComponents
         },
         {
@@ -211,7 +214,7 @@ export default {
           id: 4,
           name: 'decoration',
           title: '装饰',
-          icon: 'icon-a-1',
+          icon: 'icon-zhuangshi',
           components: decorationComponents
         },
         {
@@ -227,6 +230,13 @@ export default {
           title: '组件',
           icon: 'icon-zujian1',
           components: ''
+        },
+        {
+          id: 8,
+          name: 'loop',
+          title: 'LOOP',
+          icon: 'icon-newcohesion',
+          components: loopComponents
         }
       ],
       currentActive: 'chart'
@@ -300,14 +310,16 @@ export default {
       // this.$emit('onStart', e)
     },
     // 拖拽组件时触发
-    onEnd (e) { },
+    onEnd (e) {
+    },
     // 点击左侧组件时触发
     addComponent (element) {
       this.$store.commit('bigScreen/changeActiveItem', element)
       this.$emit('addComponent', element)
     },
     // 初始化
-    initList () { },
+    initList () {
+    },
     // 点击tab标签
     tabClick (tab) {
       this.nodeDrag()
@@ -371,7 +383,7 @@ export default {
   .page-left {
     box-sizing: border-box;
 
-    >* {
+    > * {
       color: #fff;
     }
 
@@ -591,8 +603,8 @@ export default {
 .slide-fade-enter,
 .slide-fade-leave-to
 
-/* .slide-fade-leave-active for below version 2.1.8 */
-  {
+  /* .slide-fade-leave-active for below version 2.1.8 */
+{
   transform: translateX(10px);
   opacity: 0;
 }
