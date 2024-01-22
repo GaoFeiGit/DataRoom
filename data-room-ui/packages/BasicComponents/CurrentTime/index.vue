@@ -95,7 +95,6 @@ export default {
     },
     // 格式化时间
     dateFormat () {
-      console.log(moment.locales())
       this.nowTime = moment(new Date().getTime()).format(
         this.config.dateFormat
       )

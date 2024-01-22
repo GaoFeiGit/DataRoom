@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11121438",
+      "name": "组件库",
+      "font_class": "zujianku",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "16399009",
+      "name": "组件",
+      "font_class": "zujian",
+      "unicode": "e85f",
+      "unicode_decimal": 59487
+    },
+    {
+      "icon_id": "10793680",
+      "name": "边框",
+      "font_class": "border-outer",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
       "icon_id": "11882257",
       "name": "班组",
       "font_class": "shift-team",
@@ -34,13 +55,6 @@
       "unicode_decimal": 58889
     },
     {
-      "icon_id": "7596471",
-      "name": "边框",
-      "font_class": "border-outer",
-      "unicode": "eafe",
-      "unicode_decimal": 60158
-    },
-    {
       "icon_id": "1997387",
       "name": "取消关联",
       "font_class": "quxiaoguanlian",
@@ -67,13 +81,6 @@
       "font_class": "data",
       "unicode": "e7e8",
       "unicode_decimal": 59368
-    },
-    {
-      "icon_id": "38941092",
-      "name": "组件",
-      "font_class": "zujian",
-      "unicode": "e8bb",
-      "unicode_decimal": 59579
     },
     {
       "icon_id": "129221",
@@ -158,13 +165,6 @@
       "font_class": "tupian",
       "unicode": "e8ba",
       "unicode_decimal": 59578
-    },
-    {
-      "icon_id": "12084141",
-      "name": "组件1",
-      "font_class": "zujian1",
-      "unicode": "e640",
-      "unicode_decimal": 58944
     },
     {
       "icon_id": "12097377",

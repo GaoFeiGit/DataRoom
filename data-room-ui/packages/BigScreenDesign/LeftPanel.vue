@@ -227,8 +227,8 @@ export default {
         {
           id: 6,
           name: 'component',
-          title: '组件',
-          icon: 'icon-zujian1',
+          title: '组件库',
+          icon: 'icon-zujianku',
           components: ''
         },
         {
